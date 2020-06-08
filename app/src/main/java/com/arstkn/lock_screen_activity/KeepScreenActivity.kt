@@ -1,6 +1,5 @@
 package com.arstkn.lock_screen_activity
 
-import android.app.NotificationManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

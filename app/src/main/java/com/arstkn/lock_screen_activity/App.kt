@@ -20,7 +20,7 @@ class App : Application() {
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 "Example Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_LOW
             )
             val manager =
                 getSystemService(NotificationManager::class.java)

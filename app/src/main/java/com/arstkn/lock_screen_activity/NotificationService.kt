@@ -3,11 +3,13 @@ package com.arstkn.lock_screen_activity
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.media.MediaPlayer
+import android.media.RingtoneManager
 import android.os.IBinder
-import android.util.Log
 import androidx.core.app.NotificationCompat
 
 class NotificationService : Service() {
+    private var player: MediaPlayer? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -19,12 +21,25 @@ class NotificationService : Service() {
             .setSmallIcon(android.R.drawable.ic_menu_call)
             .setContentTitle("start KeepScreenActivity!!")
             .setContentText("content text")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
             .setFullScreenIntent(pendingIntent, true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setWhen(System.currentTimeMillis())
 
         startForeground(1, notification.build())
+        startRing()
+    }
+
+    private fun startRing() {
+        val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
+        player = MediaPlayer.create(this, uri)
+
+        player?.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player?.release()
     }
 
     override fun onBind(intent: Intent): IBinder {
