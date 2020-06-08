@@ -3,13 +3,11 @@ package com.arstkn.lock_screen_activity
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import kotlinx.android.synthetic.main.activity_main.*
 import com.arstkn.lock_screen_activity.App.Companion.CHANNEL_ID
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var notificationManager: NotificationManagerCompat? = null
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             .setSmallIcon(android.R.drawable.ic_menu_call)
             .setContentTitle("start KeepScreenActivity!!")
             .setContentText("content text")
-            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setFullScreenIntent(pendingIntent, true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setWhen(System.currentTimeMillis())
