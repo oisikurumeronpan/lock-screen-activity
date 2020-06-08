@@ -11,9 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <service
+            android:name=".NotificationService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".KeepScreenActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:documentLaunchMode="never"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

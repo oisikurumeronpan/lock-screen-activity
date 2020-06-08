@@ -27,23 +27,6 @@ class MainActivity : AppCompatActivity() {
 
             Thread.sleep(5000)
             startActivity(intent)
-            showNotification(intent)
         }
-    }
-
-    private fun showNotification(intent: Intent) {
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(android.R.drawable.ic_menu_call)
-            .setContentTitle("start KeepScreenActivity!!")
-            .setContentText("content text")
-            .setPriority(NotificationCompat.PRIORITY_MAX)
-            .setFullScreenIntent(pendingIntent, true)
-            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .setWhen(System.currentTimeMillis())
-            .build()
-
-        notificationManager!!.notify(1, notification)
     }
 }
